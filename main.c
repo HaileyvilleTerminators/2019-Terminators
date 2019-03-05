@@ -2,24 +2,34 @@
 
 int main()
 {
-    wait_for_light(0); 			// Waits for light
+    wait_for_light(0); 
+
+    enable_servos();
+    set_servo_position(0,914);
+
+    motor(0,100);
+    motor(2,100);
+    msleep(700);
+   
+    motor(0,50);
+    motor(2,100);
+    msleep(500);
     
-    motor(0,80);				// Turns on motor with specified port 0 at 80 velocity 
-    motor(2,80);				// Turns on motor with specified port 2 at 80 velocity    
-    msleep(500);				// Waits specified number of milliseconds before next line
+     motor(0,100);
+    motor(2,100);
+    msleep(4000);
     
-    motor(0,80);				// Turns on motor with specified port 0 at 80 velocity
-    motor(2,40);				// Turns on motor with specified port 2 at 40 velocity    
-    msleep(550);				// Waits specified number of milliseconds before next line
-    ao();					// All off, turns all motor ports off
+    set_servo_position(3,950);
+    set_servo_position(0,1727);
+    set_servo_position(3,0);
     
-    enable_servos();			// Turns on servo ports
-    set_servo_position(0,1757);		// Moves servo in specified port 0 to specified position
-    msleep(1000);				// Waits specified number of milliseconds before next line
-    
-    set_servo_position(3,979);		// Moves servo in specified port 3 to specified position
-    msleep(1000);				// Waits specified number of milliseconds before next line
-    disable_servos();			//Turns off servo ports
+    motor(0,-100);
+    motor(2,-100);
+    msleep(3000);
+   
+    motor(0,100);
+    motor(2,-100);
+    msleep(100);
     
     return 0;
 }
